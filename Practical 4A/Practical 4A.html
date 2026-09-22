@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1 style="color: brown; padding: 10px;">STUDENT REGISTRATION FORM</h1>
+
+    <form onsubmit="return validateform()">
+
+        <label class="form1" for="name">Full Name</label><br>
+        <input type="text" id="name"><br><br>
+
+        <label class="form1" for="email">Email</label><br>
+        <input type="email" id="email"><br><br>
+
+        <label class="form1" for="password">Password</label><br>
+        <input type="password" id="password"><br><br>
+
+        <label class="form1" for="phone">Phone Number</label><br>
+        <input type="text" id="phone"><br><br>
+
+        <input class="button" type="submit" value="Register">
+       
+        <input class="button" type="button" value="Back" onclick="history.back()">
+
+    </form>
+
+
+<script>
+function validateform() {
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value;
+    let phone = document.getElementById("phone").value.trim();
+
+    if (name === "") {
+        alert("Please enter your name");
+        return false;
+    }
+
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address");
+        return false;
+    }
+
+    let phonePattern = /^\d{10}$/;
+    if (!phonePattern.test(phone)) {
+        alert("Phone number must be 10 digits.");
+        return false;
+    }
+
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+    }
+
+    alert("Student registration successful.");
+    return true;
+}
+</script>
+
+</body>
+</html>
