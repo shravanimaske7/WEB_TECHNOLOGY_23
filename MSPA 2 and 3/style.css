@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+input {
+    width: 65%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Display movie results side by side in responsive columns */
+#results {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+
+/* Each movie appears as an individual card */
+.movie {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    background: #eeeeee;
+    margin: 0;
+    padding: 12px;
+    border-radius: 8px;
+    min-width: 0;
+}
+
+.movie button {
+    margin-top: 8px;
+}
+
+.poster {
+    width: 100px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.movie-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.movie-info h3 {
+    margin-top: 8px;
+    overflow-wrap: anywhere;
+}
+
+/* Keep selected movies separate from the search-results grid */
+#selected {
+    margin-top: 15px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    #results {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
+    }
+
+    .poster {
+        width: 75px;
+        height: 110px;
+    }
+}
